@@ -1,0 +1,10 @@
+{
+  "name": "CIS550",
+  "description": "CIS550 Final Project",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "ejs": "*",
+    "mysql": "*"
+  }
+}
