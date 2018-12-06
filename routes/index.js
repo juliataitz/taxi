@@ -7,7 +7,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'fling.seas.upenn.edu',
   user     : 'jtaitz',
-  password : 'weLUV2ski',
+  password : '',
   database : 'jtaitz'
 });
 
