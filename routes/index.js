@@ -22,6 +22,21 @@ var connection = mysql.createConnection({
   database : 'CIS550'
 });
 
+connection.query('SHOW DATABASES', function (err, results) {
+    if (err) {
+        app.locals.databases = err.stack;
+    }
+    
+    if (results) {
+        for (var i in results) {
+            outputString = outputString + results[i].Database + ', ';
+        }
+        app.locals.databases = outputString.slice(0, outputString.length-2);
+    }
+});
+
+connection.end();
+
 // var connection = mysql.createConnection({
 //     host: dbconfig.db['cis550.czrs05s7rxjm.us-east-2.rds.amazonaws.com'],
 //     user: dbconfig.db['cis550nyctaxi'],
