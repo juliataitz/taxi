@@ -1,10 +1,18 @@
 {
-  "name": "CIS550",
-  "description": "CIS550 Final Project",
-  "version": "0.0.1",
-  "dependencies": {
-    "express": "*",
-    "ejs": "*",
-    "mysql": "*"
-  }
+  "name": "mynodeproject",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "*",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mysql": "^2.14.1",
+    "serve-favicon": "^2.5.0"
+  }
 }
