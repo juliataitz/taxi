@@ -6,14 +6,7 @@ var app = express();
 // Connect string to MySQL
 var mysql = require('mysql');
 
-// app.engine('html', require('ejs').renderFile);
-// app.locals.hostname = dbconfig.db['cis550.czrs05s7rxjm.us-east-2.rds.amazonaws.com'];
-// app.locals.username = dbconfig.db['cis550nyctaxi'];
-// app.locals.password = dbconfig.db['jjor2018'];
-// app.locals.port = dbconfig.db['3306'];
-// app.locals.database = dbconfig.db['CIS550'];
-// app.locals.connectionerror = 'successful';
-// app.locals.databases = '';
+
 var connection = mysql.createConnection({
   host     : 'cis550.czrs05s7rxjm.us-east-2.rds.amazonaws.com',
   user     : 'cis550nyctaxi',
@@ -22,33 +15,9 @@ var connection = mysql.createConnection({
   database : 'CIS550'
 });
 
-connection.query('SHOW DATABASES', function (err, results) {
-    if (err) {
-        app.locals.databases = err.stack;
-    }
-    
-    if (results) {
-        for (var i in results) {
-            outputString = outputString + results[i].Database + ', ';
-        }
-        app.locals.databases = outputString.slice(0, outputString.length-2);
-    }
-});
-
-connection.end();
-
-// var connection = mysql.createConnection({
-//     host: dbconfig.db['cis550.czrs05s7rxjm.us-east-2.rds.amazonaws.com'],
-//     user: dbconfig.db['cis550nyctaxi'],
-//     password: dbconfig.db['jjor2018'],
-//     port: dbconfig.db['3306'],
-//     database: dbconfig.db['CIS550']
-// });
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 });
-
 
 module.exports = router;
