@@ -20,4 +20,11 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 });
 
+router.get('/borough', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'borough.html'));
+});
+
+router.get('/zone', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'zone.html'));
+});
 module.exports = router;
