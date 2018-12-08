@@ -27,4 +27,26 @@ router.get('/borough', function(req, res, next) {
 router.get('/zone', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'zone.html'));
 });
+
+// Two routes to set up dropdown menu and submit button
+router.get('/borough/show_boroughs', function(req, res) {
+	var query = 'SELECT name FROM Borough';
+	connection.query(query, function(err, rows, fields) {
+		if (err) console.log(err);
+		else {
+			res.json(rows);
+		}
+	});
+});
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+

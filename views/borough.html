@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="angularjsNodejsTutorial">
     <head>
         <title>NYC Taxi Habits</title>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
@@ -7,16 +7,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
 <body>
-
-<!--   <h1>AWS OpsWorks Node.js Example</h1>
-    <p>Amazon RDS Endpoint: <i><%= hostname %></i></p>
-    <p>User: <i><%= username %></i></p>
-    <p>Password: <i><%= password %></i></p>
-    <p>Port: <i><%= port %></i></p>
-    <p>Database: <i><%= database %></i></p>
-
-    <p>Connection: <%= connectionerror %></p>
-    <p>Databases: <%= databases %></p> -->
     <body data-spy="scroll" data-target=".scrollspy">
         <header></header>
         <!-- Static navbar-->
@@ -33,17 +23,13 @@
          <div class="container">
             <!-- Main component for a primary marketing message or call to action-->
             <div class="jumbotron">
-         <div class="container">
-            <!-- Main component for a primary marketing message or call to action-->
-            <div class="jumbotron">
 
         <!-- Drop down -->
-        <div ng-app="angularjsNodejsTutorial" ng-controller="familyController">
+        <div ng-controller="boroughController">
         <h3>Habits by Borough</h3>
-        <select ng-model="borough" ng-options="borough.borough for x in data"></select> 
+        <select name="borough" ng-model="borough" ng-options="x.name for x in data"></select> 
 
-      <!--   <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a person login: -->
-        <button type="button" ng-click="Submit()" class="button">Show Borough</button>
+        <button type="button" ng-click="Submit()" class="button">Show Borough Stats</button>
         <!-- </p> -->
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
         <h4>Total</h4>
