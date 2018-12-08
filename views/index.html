@@ -36,17 +36,17 @@
          <div ng-controller="habitController">
          <h3>Overall Habits</h3>
         <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Temperature -  
-            Min: <input name="temp-min" ng-model="temp-min" value="">
-            Max: <input name="temp-max" ng-model="temp-max" value=""></br>
+            Min: <input name="temp-min" ng-model="temp-min" value="-100">
+            Max: <input name="temp-max" ng-model="temp-max" value="100"></br>
             <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Rain -  
-            Min: <input name="rain-min" ng-model="rain-min" value="">
-            Max: <input name="rain-max" ng-model="rain-max" value=""></br>
+            Min: <input name="rain-min" ng-model="rain-min" value="0">
+            Max: <input name="rain-max" ng-model="rain-max" value="0"></br>
             <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Snow -  
-            Min: <input name="snow-min" ng-model="snow-min" value="">
-            Max: <input name="snow-max" ng-model="snow-max" value=""></br>
+            Min: <input name="snow-min" ng-model="snow-min" value="0">
+            Max: <input name="snow-max" ng-model="snow-max" value="0"></br>
             <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Wind -  
-            Min: <input name="wind-min" ng-model="wind-min" value="">
-            Max: <input name="wind-max" ng-model="wind-max" value=""></br>
+            Min: <input name="wind-min" ng-model="wind-min" value="0">
+            Max: <input name="wind-max" ng-model="wind-max" value="0"></br>
             <button type="button" ng-click="Submit()" class="button">Show Habits By Weather</button>
         </p>
 <!--         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
