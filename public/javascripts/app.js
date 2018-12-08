@@ -1,6 +1,5 @@
 var app = angular.module('angularjsNodejsTutorial',[]);
 
-
 app.controller('boroughController', function($scope, $http) {
 	$scope.message="";
 	// request on start
@@ -11,6 +10,7 @@ app.controller('boroughController', function($scope, $http) {
 	request.error(function(data) {
 		console.log('err');
 	});
+});
 
 app.controller('habitController', function($scope, $http) {
         $scope.message="";
