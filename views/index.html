@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AWS Opsworks Node.js Example</title>
-</head>
+    <head>
+        <title>NYC Taxi Habits</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+        <script src="javascripts/app.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    </head>
 <body>
-  <h1>AWS OpsWorks Node.js Example</h1>
+
+<!--   <h1>AWS OpsWorks Node.js Example</h1>
     <p>Amazon RDS Endpoint: <i><%= hostname %></i></p>
     <p>User: <i><%= username %></i></p>
     <p>Password: <i><%= password %></i></p>
@@ -12,6 +16,126 @@
     <p>Database: <i><%= database %></i></p>
 
     <p>Connection: <%= connectionerror %></p>
-    <p>Databases: <%= databases %></p>
-</body>
+    <p>Databases: <%= databases %></p> -->
+    <body data-spy="scroll" data-target=".scrollspy">
+        <header></header>
+        <!-- Static navbar-->
+        <nav role="navigation" class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">NYC Taxi Habits</a></div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <li class="active"><a href="/">Overall Consumer Habits</a></li>
+                    <li><a href="/borough">Habits By Borough</a></li>
+                    <li><a href="/zone">Habits By Zone</a></li>
+                </div>
+            </div>
+        </nav>
+         <div class="container">
+            <!-- Main component for a primary marketing message or call to action-->
+            <div class="jumbotron">
+         <div ng-controller="myController">
+        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Temperature -  
+            Min: <input name="temp-min" ng-model="temp-min" value="">
+            Max: <input name="temp-max" ng-model="temp-max" value=""></br>
+            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Rain -  
+            Min: <input name="rain-min" ng-model="rain-min" value="">
+            Max: <input name="rain-max" ng-model="rain-max" value=""></br>
+            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Snow -  
+            Min: <input name="snow-min" ng-model="snow-min" value="">
+            Max: <input name="snow-max" ng-model="snow-max" value=""></br>
+            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Wind -  
+            Min: <input name="wind-min" ng-model="wind-min" value="">
+            Max: <input name="wind-max" ng-model="wind-max" value=""></br>
+            <button type="button" ng-click="Submit()" class="button">Show Habits By Weather</button>
+        </p>
+<!--         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> Login </td>
+            <td> Name </td>
+            <td> Sex </td>
+            <td> RelationshipStatus </td>
+            <td> Birthyear </td>
+            <tr ng-repeat="x in data"> 
+            <td> {{x.login}} </td>
+            <td> {{x.name}} </td>
+            <td> {{x.sex}} </td>
+            <td> {{x.relationshipStatus}} </td>
+            <td> {{x.birthyear}} </td>
+            </tr>
+        </table> -->
+        </div>
+<div id="spendingchart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Payment', 'Dollars'],
+  ['Fare', 8],
+  ['Tip', 2]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Consumer Taxi Spending in Borough', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.ColumnChart(document.getElementById('spendingchart'));
+  chart.draw(data, options);
+}
+</script>
+<div id="distancechart"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Distance', 'Miles'],
+  ['Distance', 8]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Consumer Taxi Distance in Borough', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.ColumnChart(document.getElementById('distancechart'));
+  chart.draw(data, options);
+}
+</script>
+<div id="durationchart"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Duration', 'Minutes'],
+  ['Duration', 8]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Consumer Taxi Duration in Borough', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.ColumnChart(document.getElementById('durationchart'));
+  chart.draw(data, options);
+}
+</script>
+
+    </body>
+
 </html>
