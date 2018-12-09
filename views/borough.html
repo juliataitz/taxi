@@ -30,21 +30,8 @@
         <select name="borough" ng-model="borough" ng-options="x.name for x in data"></select>
         <select name="myWeather" ng-model="myWeather" ng-options="weatherType.name for weatherType in weathers"></select>
 
-<!--         <form action="" name="weather" ng-model="borough">
-            <input type="radio" name="weatherT" value="snow" checked> Snow <br>
-            <input type="radio" name="weatherT" value="rain"> Rain <br>
-            <input type="radio" name="weatherT" value="hot"> Hot
-        </form> -->
-
-<!--         <select name="weather" ng-model="borough">
-            <option value="snow">Snow</option>
-            <option value="rain">Rain</option>
-            <option value="hot">Hot</option>
-            <option value="cold">Cold</option>
-            <option value="wind">Wind</option>
-        </select> -->
         <button type="button" ng-click="Submit()" class="button">Show Borough Stats</button>
-        <!-- </p> -->
+        
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
         <h4>Total</h4>
             <tr> 
@@ -74,11 +61,16 @@
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
         <h4>Per Capita</h4>
             <tr> 
-            <td> Snow </td>
-            <td> Rain </td>
-            <td> Hot </td>
-            <td> Cold </td>
-            <td> Windy </td>
+            <td> Snow Pickup </td>
+            <td> Snow Dropoff </td>
+            <td> Rain Pickup </td>
+            <td> Rain Dropoff </td>
+            <td> Hot Pickup </td>
+            <td> Hot Dropoff </td>
+            <td> Cold Pickup </td>
+            <td> Cold Dropoff </td>
+            <td> Windy Pickup </td>
+            <td> Windy Dropoff </td>
             <tr ng-repeat="y in data2"> 
             <td> {{y.snow_ppc}} </td>
             <td> {{y.snow_dpc}} </td>
