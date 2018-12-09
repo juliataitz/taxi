@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="angularjsNodejsTutorial">
     <head>
         <title>NYC Taxi Habits</title>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
@@ -7,16 +7,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
 <body>
-
-<!--   <h1>AWS OpsWorks Node.js Example</h1>
-    <p>Amazon RDS Endpoint: <i><%= hostname %></i></p>
-    <p>User: <i><%= username %></i></p>
-    <p>Password: <i><%= password %></i></p>
-    <p>Port: <i><%= port %></i></p>
-    <p>Database: <i><%= database %></i></p>
-
-    <p>Connection: <%= connectionerror %></p>
-    <p>Databases: <%= databases %></p> -->
     <body data-spy="scroll" data-target=".scrollspy">
         <header></header>
         <!-- Static navbar-->
@@ -33,48 +23,65 @@
          <div class="container">
             <!-- Main component for a primary marketing message or call to action-->
             <div class="jumbotron">
-         <div class="container">
-            <!-- Main component for a primary marketing message or call to action-->
-            <div class="jumbotron">
 
         <!-- Drop down -->
-        <div ng-app="angularjsNodejsTutorial" ng-controller="familyController">
+        <div ng-controller="boroughController">
         <h3>Habits by Borough</h3>
-        <select ng-model="borough" ng-options="borough.borough for x in data"></select> 
+        <select name="borough" ng-model="borough" ng-options="x.name for x in data"></select>
+        <select name="myWeather" ng-model="myWeather" ng-options="weatherType.name for weatherType in weathers"></select>
 
-      <!--   <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Please enter a person login: -->
-        <button type="button" ng-click="Submit()" class="button">Show Borough</button>
-        <!-- </p> -->
+        <button type="button" ng-click="Submit()" class="button">Show Borough Stats</button>
+        
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
         <h4>Total</h4>
             <tr> 
-            <td> Snow </td>
-            <td> Rain </td>
-            <td> Hot </td>
-            <td> Cold </td>
-            <td> Windy </td>
+            <td> Snow Pickup </td>
+            <td> Snow Dropoff </td>
+            <td> Rain Pickup </td>
+            <td> Rain Dropoff </td>
+            <td> Hot Pickup </td>
+            <td> Hot Dropoff </td>
+            <td> Cold Pickup </td>
+            <td> Cold Dropoff </td>
+            <td> Windy Pickup </td>
+            <td> Windy Dropoff </td>
             <tr ng-repeat="y in data2"> 
-            <td> {{y.snow}} </td>
-            <td> {{y.rain}} </td>
-            <td> {{y.hot}} </td>
-            <td> {{y.cold}} </td>
-            <td> {{y.windy}} </td>
+            <td> {{y.snow_p}} </td>
+            <td> {{y.snow_d}} </td>
+            <td> {{y.rain_p}} </td>
+            <td> {{y.rain_d}} </td>
+            <td> {{y.hot_p}} </td>
+            <td> {{y.hot_d}} </td>
+            <td> {{y.cold_p}} </td>
+            <td> {{y.cold_d}} </td>
+            <td> {{y.windy_p}} </td>
+            <td> {{y.windy_d}} </td>
             </tr>
         </table>
-                <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
         <h4>Per Capita</h4>
             <tr> 
-            <td> Snow </td>
-            <td> Rain </td>
-            <td> Hot </td>
-            <td> Cold </td>
-            <td> Windy </td>
+            <td> Snow Pickup </td>
+            <td> Snow Dropoff </td>
+            <td> Rain Pickup </td>
+            <td> Rain Dropoff </td>
+            <td> Hot Pickup </td>
+            <td> Hot Dropoff </td>
+            <td> Cold Pickup </td>
+            <td> Cold Dropoff </td>
+            <td> Windy Pickup </td>
+            <td> Windy Dropoff </td>
             <tr ng-repeat="y in data2"> 
-            <td> {{y.snow}} </td>
-            <td> {{y.rain}} </td>
-            <td> {{y.hot}} </td>
-            <td> {{y.cold}} </td>
-            <td> {{y.windy}} </td>
+            <td> {{y.snow_ppc}} </td>
+            <td> {{y.snow_dpc}} </td>
+            <td> {{y.rain_ppc}} </td>
+            <td> {{y.rain_dpc}} </td>
+            <td> {{y.hot_ppc}} </td>
+            <td> {{y.hot_dpc}} </td>
+            <td> {{y.cold_ppc}} </td>
+            <td> {{y.cold_dpc}} </td>
+            <td> {{y.windy_ppc}} </td>
+            <td> {{y.windy_dpc}} </td>
             </tr>
         </table>
         </div>
