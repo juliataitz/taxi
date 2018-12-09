@@ -2,6 +2,14 @@ var app = angular.module('angularjsNodejsTutorial',[]);
 
 app.controller('boroughController', function($scope, $http) {
 	$scope.message="";
+	$scope.weathers = [
+		{name:'Snow'},
+		{name:'Rain'},
+		{name:'Hot'},
+		{name:'Cold'},
+		{name:'Windy'}
+	];
+	$scope.myWeather = $scope.weathers[0];
 	// request on start
 	var request = $http.get('/borough/show_boroughs');
 	request.success(function(data) {
@@ -10,6 +18,18 @@ app.controller('boroughController', function($scope, $http) {
 	request.error(function(data) {
 		console.log('err');
 	});
+
+	// request for submit button
+	$scope.Submit = function() {
+		// var request = $http.get('borough/'+$scope.borough.name+'/'+$scope.weather);
+		var request = $http.get('borough/'+$scope.borough.name+'/'+$scope.myWeather.name);
+		request.success(function(data2) {
+			$scope.data2 = data2;
+		});
+		request.error(function(data2) {
+			console.log('err');
+		})
+	}
 });
 
 app.controller('habitController', function($scope, $http) {
