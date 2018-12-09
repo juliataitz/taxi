@@ -39,6 +39,36 @@ router.get('/borough/show_boroughs', function(req, res) {
 	});
 });
 
+// Router for submit button on borough
+router.get('/borough/:borough/:weather', function(req, res) {
+	var borough = req.params.borough;
+	console.log(borough);
+
+	var weather = req.params.weather;
+	console.log(weather);
+
+	var query = '';
+	if (weather == 'Snow') {
+		query = 'SELECT count(distinct t.tripId) as snow_p FROM Trip t INNER JOIN Weather w on t.timePickup between w.d and DATE_ADD(w.d, INTERVAL 1 HOUR) LEFT JOIN Place p on t.puId = p.locationId WHERE borough = \'' + borough + '\' and snowfall > .05';
+	} else if (weather == 'Rain') {
+
+	} else if (weather == 'Hot') {
+
+	} else if (weather == 'Cold') {
+
+	} else if (weather == 'Windy') {
+
+	}
+
+	console.log(query);
+	connection.query(query, function(err, rows, fields) {
+		if (err) console.log(err);
+		else {
+			res.json(rows);
+		}
+	})
+})
+
 router.get('/show/:snow-min/:snow-max/:rain-min/:rain-max/:temp-min/:temp-max/:wind-min/:wind-max', function(req,res) {
   //Use req.body for post requests
 
