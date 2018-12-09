@@ -6,7 +6,6 @@ var app = express();
 // Connect string to MySQL
 var mysql = require('mysql');
 
-
 var connection = mysql.createConnection({
   host     : 'cis550.czrs05s7rxjm.us-east-2.rds.amazonaws.com',
   user     : 'cis550nyctaxi',
@@ -28,7 +27,48 @@ router.get('/zone', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../', 'views', 'zone.html'));
 });
 
-// Two routes to set up dropdown menu and submit button
+// Two routes to set up dropdown menu and submit button for zones
+router.get('/zone/show_zones', function(req, res) {
+	var query = 'SELECT zone FROM Place';
+	connection.query(query, function(err, rows, fields) {
+		if(err) console.log(err);
+		else {
+			res.json(rows);
+		}
+	});
+});
+
+router.get('/zone/:zone/:weather', function(req, res) {
+	var zone = req.params.zone;
+	console.log(zone);
+
+	var weather = req.params.weather;
+	console.log(weather);
+
+	var query = '';
+	if (weather == 'Snow') {
+		// Insert query that gets snow pickup and dropoff totals
+	} else if (weather == 'Rain') {
+		// Insert query that gets rain pickup and dropoff totals
+	} else if (weather == 'Hot') {
+		// Insert query that gets hot pickup and dropoff totals
+	} else if (weather == 'Cold') {
+		// Insert query that gets cold pickup and dropoff totals
+	} else if (weather == 'Windy') {
+		// Insert query that gets windy pickup and dropoff totals
+	}
+
+	console.log(query);
+	connection.query(query, function(err, rows, fields) {
+		if (err) console.log(err);
+		else {
+			res.json(rows);
+		}
+	});
+});
+
+
+// Two routes to set up dropdown menu and submit button for boroughs
 router.get('/borough/show_boroughs', function(req, res) {
 	var query = 'SELECT name FROM Borough';
 	connection.query(query, function(err, rows, fields) {
@@ -49,15 +89,16 @@ router.get('/borough/:borough/:weather', function(req, res) {
 
 	var query = '';
 	if (weather == 'Snow') {
+		// Insert query that gets snow pickup and dropoff totals and per capita
 		query = 'SELECT count(distinct t.tripId) as snow_p FROM Trip t INNER JOIN Weather w on t.timePickup between w.d and DATE_ADD(w.d, INTERVAL 1 HOUR) LEFT JOIN Place p on t.puId = p.locationId WHERE borough = \'' + borough + '\' and snowfall > .05';
 	} else if (weather == 'Rain') {
-
+		// Insert query that gets rain pickup and dropoff totals and per capita
 	} else if (weather == 'Hot') {
-
+		// Insert query that gets hot pickup and dropoff totals and per capita
 	} else if (weather == 'Cold') {
-
+		// Insert query that gets cold pickup and dropoff totals and per capita
 	} else if (weather == 'Windy') {
-
+		// Insert query that gets windy pickup and dropoff totals and per capita
 	}
 
 	console.log(query);
@@ -66,8 +107,8 @@ router.get('/borough/:borough/:weather', function(req, res) {
 		else {
 			res.json(rows);
 		}
-	})
-})
+	});
+});
 
 router.get('/show/:snow-min/:snow-max/:rain-min/:rain-max/:temp-min/:temp-max/:wind-min/:wind-max', function(req,res) {
   //Use req.body for post requests
