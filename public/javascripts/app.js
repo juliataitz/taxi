@@ -67,13 +67,14 @@ app.controller('habitController', function($scope, $http) {
         $scope.message="";
         $scope.Submit = function() {
 
-        var insert_data = {'snow-min': $scope.snow-min, 'snow-max': $scope.snow-max, 'rain-min': $scope.rain-min, 'rain-max': $scope.rain-max, 'temp-min': $scope.temp-min, 'temp-max': $scope.temp-max, 'wind-min': $scope.wind-min, 'wind-max': $scope.wind-max};
+//         var insert_data = {'snow_min': $scope.snow_min, 'snow_max': $scope.snow_max, 'rain_min': $scope.rain_min, 'rain_max': $scope.rain_max, 'temp_min': $scope.temp_min, 'temp_max': $scope.temp_max, 'wind_min': $scope.wind_min, 'wind_max': $scope.wind_max};
       
-        var request = $http({
-            url: '/show/:'+ $scope.snow-min + '/' + $scope.snow-max + '/' + $scope.rain-min + '/' + $scope.rain-max + '/' + $scope.temp-min + '/' + $scope.temp-max + '/' + $scope.wind-min + '/' + $scope.wind-max,
-            method:'Get',
-            data: insert_data
-        });
+//         var request = $http({
+//             url: '/show/'+ $scope.snow_min + '/' + $scope.snow_max + '/' + $scope.rain_min + '/' + $scope.rain_max + '/' + $scope.temp_min + '/' + $scope.temp_max + '/' + $scope.wind_min + '/' + $scope.wind_max,
+//             method:'Get',
+//             data: insert_data
+//         });
+		var request = $http.get('/show/'+ $scope.snow_min + '/' + $scope.snow_max + '/' + $scope.rain_min + '/' + $scope.rain_max + '/' + $scope.temp_min + '/' + $scope.temp_max + '/' + $scope.wind_min + '/' + $scope.wind_max);
         request.success(function(data) {
             $scope.data = data;
         });

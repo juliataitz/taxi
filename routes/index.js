@@ -111,12 +111,13 @@ router.get('/borough/:borough/:weather', function(req, res) {
   });
 });
 
-router.get('/show/:snow-min/:snow-max/:rain-min/:rain-max/:temp-min/:temp-max/:wind-min/:wind-max', function(req,res) {
+router.get('/show/:snow_min/:snow_max/:rain_min/:rain_max/:temp_min/:temp_max/:wind_min/:wind_max', function(req,res) {
   //Use req.body for post requests
+  var query =  'select avg(t.total) as total, avg(t.fareAmt) as fare, avg(t.tip) as tip,  100*avg(t.tip)/ avg(t.fareAmt) as tippct, avg(t.dist) as distance, avg(MINUTE(TIMEDIFF(t.timeDropoff,t.timePickup))) as time from CIS550.Trip t inner join CIS550.Weather w on t.timePickup between w.d and DATE_ADD(w.d, INTERVAL 1 HOUR) where snowfall between ' + req.params.snow_min + ' and ' + req.params.snow_max + ' and  precipitation - snowfall between ' + req.params.rain_min + ' and ' + req.params.rain_max + ' and wind between ' + req.params.wind_min + ' and ' + req.params.wind_max + ' and temp between ' + req.params.temp_min + ' and ' + req.params.temp_max;
 
  
-  var query = 
-  'select avg(t.total), avg(t.fareAmt), avg(t.tip),  100*avg(t.tip)/ avg(t.fareAmt) as tippct, avg(t.dist), avg(MINUTE(TIMEDIFF(t.timeDropoff,t.timePickup))) from CIS550.Trip t inner join CIS550.Weather w on t.timePickup between w.d and DATE_ADD(w.d, INTERVAL 1 HOUR) where snowfall between ' + req.body.snow-min + ' and ' + req.body.snow-max + ' and  precipitation - snowfall between ' + req.body.rain-min + ' and ' + req.body.rain-max + ' and wind between ' + req.body.wind-min + ' and ' + req.body.wind-max + ' and temp between ' + req.body.temp-min + ' and ' + req.body.temp-max;
+  // var query = 
+  // 'select avg(t.total), avg(t.fareAmt), avg(t.tip),  100*avg(t.tip)/ avg(t.fareAmt) as tippct, avg(t.dist), avg(MINUTE(TIMEDIFF(t.timeDropoff,t.timePickup))) from CIS550.Trip t inner join CIS550.Weather w on t.timePickup between w.d and DATE_ADD(w.d, INTERVAL 1 HOUR) where snowfall between ' + req.body.snow-min + ' and ' + req.body.snow-max + ' and  precipitation - snowfall between ' + req.body.rain-min + ' and ' + req.body.rain-max + ' and wind between ' + req.body.wind-min + ' and ' + req.body.wind-max + ' and temp between ' + req.body.temp-min + ' and ' + req.body.temp-max;
   console.log(query);
 
 

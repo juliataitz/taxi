@@ -11,15 +11,6 @@
     </head>
 <body>
 
-<!--   <h1>AWS OpsWorks Node.js Example</h1>
-    <p>Amazon RDS Endpoint: <i><%= hostname %></i></p>
-    <p>User: <i><%= username %></i></p>
-    <p>Password: <i><%= password %></i></p>
-    <p>Port: <i><%= port %></i></p>
-    <p>Database: <i><%= database %></i></p>
-
-    <p>Connection: <%= connectionerror %></p>
-    <p>Databases: <%= databases %></p> -->
     <body data-spy="scroll" data-target=".scrollspy">
         <header></header>
         <!-- Static navbar-->
@@ -38,33 +29,41 @@
             <div class="jumbotron">
          <div ng-controller="habitController">
          <h3>Overall Habits</h3>
-        <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Temperature -  
-            Min: <input name="temp-min" ng-model="temp-min" value="-100">
-            Max: <input name="temp-max" ng-model="temp-max" value="100"></br>
-            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Rain -  
-            Min: <input name="rain-min" ng-model="rain-min" value="0">
-            Max: <input name="rain-max" ng-model="rain-max" value="0"></br>
-            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Snow -  
-            Min: <input name="snow-min" ng-model="snow-min" value="0">
-            Max: <input name="snow-max" ng-model="snow-max" value="0"></br>
-            <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Wind -  
-            Min: <input name="wind-min" ng-model="wind-min" value="0">
-            Max: <input name="wind-max" ng-model="wind-max" value="0"></br>
+        <p>
+        <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
+        Temperature -  
+            Min: <input name="temp_min" ng-model="temp_min" value="-100">
+            Max: <input name="temp_max" ng-model="temp_max" value="100"></br>
+            <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
+            Rain -  
+            Min: <input name="rain_min" ng-model="rain_min" value="0">
+            Max: <input name="rain_max" ng-model="rain_max" value="0"></br>
+            <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
+            Snow -  
+            Min: <input name="snow_min" ng-model="snow_min" value="0">
+            Max: <input name="snow_max" ng-model="snow_max" value="0"></br>
+            <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> -->
+             Wind -  
+            Min: <input name="wind_min" ng-model="wind_min" value="0">
+            Max: <input name="wind_max" ng-model="wind_max" value="0"></br>
             <button type="button" ng-click="Submit()" class="button">Show Habits By Weather</button>
         </p>
-<!--         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+<!-- 
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
-            <td> Login </td>
-            <td> Name </td>
-            <td> Sex </td>
-            <td> RelationshipStatus </td>
-            <td> Birthyear </td>
+            <td> Total Amount </td>
+            <td> Fare Amount </td>
+            <td> Tip Amount </td>
+            <td> Tip Percent </td>
+            <td> Distance </td>
+            <td> Total Time</td>
             <tr ng-repeat="x in data"> 
-            <td> {{x.login}} </td>
-            <td> {{x.name}} </td>
-            <td> {{x.sex}} </td>
-            <td> {{x.relationshipStatus}} </td>
-            <td> {{x.birthyear}} </td>
+            <td> {{x.total}} </td>
+            <td> {{x.fare} </td>
+            <td> {{x.tip}} </td>
+            <td> {{x.tippct}} </td>
+            <td> {{x.distance}} </td>
+            <td> {{x.time}} </td>
             </tr>
         </table> -->
         </div>
@@ -78,6 +77,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
+
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
   ['Payment', 'Dollars'],
