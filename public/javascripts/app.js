@@ -64,16 +64,8 @@ app.controller('boroughController', function($scope, $http) {
 });
 
 app.controller('habitController', function($scope, $http) {
-        $scope.message="";
-        $scope.Submit = function() {
-
-//         var insert_data = {'snow_min': $scope.snow_min, 'snow_max': $scope.snow_max, 'rain_min': $scope.rain_min, 'rain_max': $scope.rain_max, 'temp_min': $scope.temp_min, 'temp_max': $scope.temp_max, 'wind_min': $scope.wind_min, 'wind_max': $scope.wind_max};
-      
-//         var request = $http({
-//             url: '/show/'+ $scope.snow_min + '/' + $scope.snow_max + '/' + $scope.rain_min + '/' + $scope.rain_max + '/' + $scope.temp_min + '/' + $scope.temp_max + '/' + $scope.wind_min + '/' + $scope.wind_max,
-//             method:'Get',
-//             data: insert_data
-//         });
+    $scope.message="";
+    $scope.Submit = function() {
 		var request = $http.get('/show/'+ $scope.snow_min + '/' + $scope.snow_max + '/' + $scope.rain_min + '/' + $scope.rain_max + '/' + $scope.temp_min + '/' + $scope.temp_max + '/' + $scope.wind_min + '/' + $scope.wind_max);
         request.success(function(data) {
             $scope.data = data;
@@ -81,6 +73,6 @@ app.controller('habitController', function($scope, $http) {
         request.error(function(data){
             console.log('err');
         });
-    
     }; 
 });
+
