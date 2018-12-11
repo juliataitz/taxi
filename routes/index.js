@@ -47,15 +47,15 @@ router.get('/zone/:zone/:weather', function(req, res) {
 
   var query = '';
   if (weather == 'Snow') {
-    // Insert query that gets snow pickup and dropoff totals
+    query = 'select * from (select count(distinct t.tripId) as snow_p from CIS550.Trip t inner join (select * from CIS550.Weather w where snowfall > 0.2) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.puId = p.locationId where zone = \'' + zone + '\') as snowp, (select count(distinct t.tripId) as snow_d from CIS550.Trip t inner join (select * from CIS550.Weather w where snowfall > 0.2) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.dropId = p.locationId where zone = \'' + zone + '\') as snowd';
   } else if (weather == 'Rain') {
-    // Insert query that gets rain pickup and dropoff totals
+    query = 'select * from (select count(distinct t.tripId) as rain_p from CIS550.Trip t inner join (select * from CIS550.Weather w where precipitation - snowfall > 0.1) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.puId = p.locationId where zone = \'' + zone + '\') as rainp, (select count(distinct t.tripId) as rain_d from CIS550.Trip t inner join (select * from CIS550.Weather w where precipitation - snowfall > 0.1) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.dropId = p.locationId where zone = \'' + zone + '\') as raind';
   } else if (weather == 'Hot') {
-    // Insert query that gets hot pickup and dropoff totals
+    query = 'select * from (select count(distinct t.tripId) as hot_p from CIS550.Trip t inner join (select * from CIS550.Weather w where temp > 80) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.puId = p.locationId where zone = \'' + zone + '\') as hotp, (select count(distinct t.tripId) as hot_d from CIS550.Trip t inner join (select * from CIS550.Weather w where temp > 80) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.dropId = p.locationId where zone = \'' + zone + '\') as hotd';
   } else if (weather == 'Cold') {
-    // Insert query that gets cold pickup and dropoff totals
+    query = 'select * from (select count(distinct t.tripId) as cold_p from CIS550.Trip t inner join (select * from CIS550.Weather w where temp < 30) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.puId = p.locationId where zone = \'' + zone + '\') as coldp, (select count(distinct t.tripId) as cold_d from CIS550.Trip t inner join (select * from CIS550.Weather w where temp < 30) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.dropId = p.locationId where zone = \'' + zone + '\') as coldd';
   } else if (weather == 'Windy') {
-    // Insert query that gets windy pickup and dropoff totals
+    query = 'select * from (select count(distinct t.tripId) as wind_p from CIS550.Trip t inner join (select * from CIS550.Weather w where wind > 25) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.puId = p.locationId where zone = \'' + zone + '\') as windp, (select count(distinct t.tripId) as wind_d from CIS550.Trip t inner join (select * from CIS550.Weather w where wind > 25) w1 on t.timePickup between w1.d and DATE_ADD(w1.d, INTERVAL 1 HOUR) left join CIS550.Place p on t.dropId = p.locationId where zone = \'' + zone + '\') as windd';
   }
 
   console.log(query);
