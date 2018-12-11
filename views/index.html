@@ -47,11 +47,11 @@
              Wind -  
             Min: <input name="wind_min" ng-model="wind_min" value="0">
             Max: <input name="wind_max" ng-model="wind_max" value="0"></br>
-            <button type="button" onclick="drawChart();" ng-click="Submit()" class="button">Show Habits By Weather</button>
+            <button type="button" onclick="setTimeout(drawChart, 8000);" ng-click="Submit()" class="button">Show Habits By Weather</button>
             <!-- </form> -->
         </p>
 
-        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <table id="table" border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
             <td> Total Amount </td>
             <td> Fare Amount </td>
@@ -80,23 +80,20 @@
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
 // google.charts.setOnLoadCallback(drawChart);
-var total = 15;
-var fare = 10;
-var tip = 2;
-var dist = 2;
-var min = 15;
+var total;
+var fare;
+var tip;
+var dist;
+var min;
 
 function drawChart() {
-    // Draw the chart and set the chart values
-// var total = 15;
-// var fare = 10;
-// var tip = 2;
-// console.log("Getting values by element ID");
-// total=document.getElementById('total');
-// console.log("Value for Total:");
-// console.log(total);
-// fare=document.getElementById('fare');
-// tip=document.getElementById('tip');
+
+var table = document.getElementById('table');
+total = parseFloat(table.rows[1].cells[0].innerHTML);
+fare = parseFloat(table.rows[1].cells[1].innerHTML);
+tip = parseFloat(table.rows[1].cells[2].innerHTML);
+dist = parseFloat(table.rows[1].cells[4].innerHTML);
+min = parseFloat(table.rows[1].cells[5].innerHTML);
 
   var dataSpending = google.visualization.arrayToDataTable([
   ['Payment', 'Dollars'],

@@ -126,8 +126,8 @@ router.get('/show/:snow_min/:snow_max/:rain_min/:rain_max/:temp_min/:temp_max/:w
     if (err) console.log(err);
     else {
         res.json(rows);
-        console.log("Output Values from Query:")
-        console.log(rows);
+        // console.log("Output Values from Query:")
+        // console.log(rows);
     }  
     });
 });
