@@ -30,28 +30,28 @@
         <div ng-controller="habitController" >
         <h3>Overall Habits</h3>
         <p>
-        <form id="form1" onsubmit="drawChart(); return false" >
+        <!-- <form id="form1" onclick="drawChart(); return false" > -->
         <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
         Temperature -  
-            Min: <input name="temp_min" ng-model="temp_min" value="-100" required>
-            Max: <input name="temp_max" ng-model="temp_max" value="100" required></br>
+            Min: <input name="temp_min" ng-model="temp_min" value="-100">
+            Max: <input name="temp_max" ng-model="temp_max" value="100"></br>
             <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
             Rain -  
-            Min: <input name="rain_min" ng-model="rain_min" value="0" required>
-            Max: <input name="rain_max" ng-model="rain_max" value="0" required></br>
+            Min: <input name="rain_min" ng-model="rain_min" value="0">
+            Max: <input name="rain_max" ng-model="rain_max" value="0"></br>
             <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
             Snow -  
-            Min: <input name="snow_min" ng-model="snow_min" value="0" required>
-            Max: <input name="snow_max" ng-model="snow_max" value="0" required></br>
+            Min: <input name="snow_min" ng-model="snow_min" value="0">
+            Max: <input name="snow_max" ng-model="snow_max" value="0"></br>
             <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> -->
              Wind -  
-            Min: <input name="wind_min" ng-model="wind_min" value="0" required>
-            Max: <input name="wind_max" ng-model="wind_max" value="0" required></br>
-            <button type="button" ng-click="Submit()" class="button">Show Habits By Weather</button>
-            </form>
+            Min: <input name="wind_min" ng-model="wind_min" value="0">
+            Max: <input name="wind_max" ng-model="wind_max" value="0"></br>
+            <button type="button" onclick="drawChart();" ng-click="Submit()" class="button">Show Habits By Weather</button>
+            <!-- </form> -->
         </p>
 
-<!--         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
             <td> Total Amount </td>
             <td> Fare Amount </td>
@@ -60,14 +60,15 @@
             <td> Distance </td>
             <td> Total Time</td>
             <tr ng-repeat="x in data"> 
-            <td> {{x.total}} </td>
-            <td> {{x.fare}} </td>
-            <td> {{x.tip}}} </td>
-            <td> {{x.tippct}} </td>
-            <td> {{x.distance}} </td>
-            <td> {{x.time}} </td>
+            <td id="total"> {{x.total}} </td>
+            <td id="fare"> {{x.fare}} </td>
+            <td id="tip"> {{x.tip}} </td>
+            <td id="tippct"> {{x.tippct}} </td>
+            <td id="distnace"> {{x.distance}} </td>
+            <td id="time"> {{x.time}} </td>
             </tr>
-        </table> -->
+        </table>
+
         </div>
 <div id="spendingchart" align="center"></div>
 <div id="distancechart" align="center"></div>
@@ -78,19 +79,25 @@
 <script type="text/javascript">
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
+// google.charts.setOnLoadCallback(drawChart);
 var total = 15;
 var fare = 10;
 var tip = 2;
 var dist = 2;
 var min = 15;
-// var total=document.getElementById('form1.total');
-// var fare=document.getElementById('form1.fare');
-// var tip=document.getElementById('form1.tip');
 
 function drawChart() {
+    // Draw the chart and set the chart values
+// var total = 15;
+// var fare = 10;
+// var tip = 2;
+
+total=document.getElementById('total');
+console.log("!!!!!!!");
+console.log(total);
+fare=document.getElementById('fare');
+tip=document.getElementById('tip');
+
   var dataSpending = google.visualization.arrayToDataTable([
   ['Payment', 'Dollars'],
   ['Total', total],
