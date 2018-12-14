@@ -16,7 +16,7 @@
         <!-- Static navbar-->
         <nav role="navigation" class="navbar navbar-static-top navbar-default">
             <div class="container">
-                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">NYC Taxi Habits</a></div>
+                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">NYC Taxi Habits</a></div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <li class="active"><a href="/">City-Wide Habits</a></li>
                     <li><a href="/borough">Borough Habits</a></li>
@@ -33,7 +33,7 @@
         <!-- <form id="form1" onclick="drawChart(); return false" > -->
         <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
         Temp -  
-            Min: <input name="temp_min" ng-model="temp_min" value="-100">
+            Min: <input name="temp_min" ng-model="temp_min" value="0">
             Max: <input name="temp_max" ng-model="temp_max" value="100"></br>
             <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
             Rain -  
@@ -46,7 +46,7 @@
             <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> -->
              Wind -  
             Min: <input name="wind_min" ng-model="wind_min" value="0">
-            Max: <input name="wind_max" ng-model="wind_max" value="0"></br>
+            Max: <input name="wind_max" ng-model="wind_max" value="100"></br>
             </b>
             <button type="button" onclick="setTimeout(drawChart, 8000);" ng-click="Submit()" class="button">Show City Stats</button>
             <!-- </form> -->
