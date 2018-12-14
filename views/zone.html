@@ -32,9 +32,6 @@
         <select name="zone" ng-model="zone" ng-options="x.zone for x in data">
             <option value="" selected disabled hidden>Select Zone</option>
         </select>
-        <select name="myWeather" ng-model="myWeather" ng-options="weatherType.name for weatherType in weathers">
-            <option value="" selected disabled hidden>Select Weather</option>
-        </select>
 
         <button type="button" ng-click="Submit()" class="button">Show Zone Stats</button>
         

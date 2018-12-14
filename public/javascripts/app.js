@@ -2,13 +2,6 @@ var app = angular.module('angularjsNodejsTutorial',[]);
 
 app.controller('zoneController', function($scope, $http) {
 	$scope.message="";
-	$scope.weathers=[
-		{name:'Snow'},
-		{name:'Rain'},
-		{name:'Hot'},
-		{name:'Cold'},
-		{name:'Windy'}
-	];
 	// request on start
 	var request = $http.get('/zone/show_zones');
 	request.success(function(data) {
@@ -20,7 +13,7 @@ app.controller('zoneController', function($scope, $http) {
 
 	// request for submit button
 	$scope.Submit = function() {
-		var request = $http.get('zone/'+$scope.zone.zone+'/'+$scope.myWeather.name);
+		var request = $http.get('zone/'+$scope.zone.zone);
 		request.success(function(data2) {
 			$scope.data2 = data2;
 		});
