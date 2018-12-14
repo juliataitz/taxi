@@ -29,8 +29,12 @@
         <!-- Drop down -->
         <div ng-controller="boroughController">
         <h3>Borough Habits</h3>
-        <select name="borough" ng-model="borough" ng-options="x.name for x in data"></select>
-        <select name="myWeather" ng-model="myWeather" ng-options="weatherType.name for weatherType in weathers"></select>
+        <select name="borough" ng-model="borough" ng-options="x.name for x in data">
+            <option value="" selected disabled hidden>Select Borough</option>
+        </select>
+        <select name="myWeather" ng-model="myWeather" ng-options="weatherType.name for weatherType in weathers">
+            <option value="" selected disabled hidden>Select Weather</option>
+        </select>
 
         <button type="button" ng-click="Submit()" class="button">Show Borough Stats</button>
         
@@ -61,7 +65,7 @@
             </tr>
         </table>
         <table border="0" cellpadding="5" cellspacing="1" width="900" align="center"></br>
-        <h4>Percent of Population Riders Per Day</h4>
+        <h4>Riders Per Day as a Percent of Borough Population</h4>
             <tr> 
             <td> <b><u>Snow Pickup </u></b></td>
             <td> <b><u>Snow Dropoff </u></b></td>

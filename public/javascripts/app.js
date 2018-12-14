@@ -9,7 +9,6 @@ app.controller('zoneController', function($scope, $http) {
 		{name:'Cold'},
 		{name:'Windy'}
 	];
-	$scope.myWeather = $scope.weathers[0];
 	// request on start
 	var request = $http.get('/zone/show_zones');
 	request.success(function(data) {
@@ -40,7 +39,6 @@ app.controller('boroughController', function($scope, $http) {
 		{name:'Cold'},
 		{name:'Windy'}
 	];
-	$scope.myWeather = $scope.weathers[0];
 	// request on start
 	var request = $http.get('/borough/show_boroughs');
 	request.success(function(data) {
