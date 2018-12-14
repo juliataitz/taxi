@@ -1,8 +1,36 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 a {
   color: #00B7FF;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-image: url("../images/taxi_back.jpg");
+    background-color: #f0b424;
+}
+
+h1,h2, h3, h4, p {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+table {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.jumbotron {
+    padding: 48px 0;
+    background: #f4d485;
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
 }

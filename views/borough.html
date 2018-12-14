@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="angularjsNodejsTutorial">
     <head>
+        <link rel="shortcut icon" href="images/favicon.ico"/>
         <title>NYC Taxi Habits</title>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
         <script src="javascripts/app.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/style.css">
     </head>
 <body>
     <body data-spy="scroll" data-target=".scrollspy">
@@ -14,9 +16,9 @@
             <div class="container">
                 <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">NYC Taxi Habits</a></div>
                 <div id="navbar" class="collapse navbar-collapse">
-                    <li class="active"><a href="/">Overall Consumer Habits</a></li>
-                    <li><a href="/borough">Habits By Borough</a></li>
-                    <li><a href="/zone">Habits By Zone</a></li>
+                    <li class="active"><a href="/">City-Wide Habits</a></li>
+                    <li><a href="/borough">Borough Habits</a></li>
+                    <li><a href="/zone">Zone Habits</a></li>
                 </div>
             </div>
         </nav>
@@ -26,14 +28,14 @@
 
         <!-- Drop down -->
         <div ng-controller="boroughController">
-        <h3>Habits by Borough</h3>
+        <h3>Borough Habits</h3>
         <select name="borough" ng-model="borough" ng-options="x.name for x in data"></select>
         <select name="myWeather" ng-model="myWeather" ng-options="weatherType.name for weatherType in weathers"></select>
 
         <button type="button" ng-click="Submit()" class="button">Show Borough Stats</button>
         
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
-        <h4>Total</h4>
+        <h4>Rides Per Day</h4>
             <tr> 
             <td> Snow Pickup </td>
             <td> Snow Dropoff </td>
@@ -59,7 +61,7 @@
             </tr>
         </table>
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
-        <h4>Per Capita</h4>
+        <h4>Percent of People Who Take a Taxi Per Day</h4>
             <tr> 
             <td> Snow Pickup </td>
             <td> Snow Dropoff </td>
@@ -72,16 +74,16 @@
             <td> Windy Pickup </td>
             <td> Windy Dropoff </td>
             <tr ng-repeat="y in data2"> 
-            <td> {{y.snow_ppc}} </td>
-            <td> {{y.snow_dpc}} </td>
-            <td> {{y.rain_ppc}} </td>
-            <td> {{y.rain_dpc}} </td>
-            <td> {{y.hot_ppc}} </td>
-            <td> {{y.hot_dpc}} </td>
-            <td> {{y.cold_ppc}} </td>
-            <td> {{y.cold_dpc}} </td>
-            <td> {{y.wind_ppc}} </td>
-            <td> {{y.wind_dpc}} </td>
+            <td> {{y.snow_ppc}} %</td>
+            <td> {{y.snow_dpc}} %</td>
+            <td> {{y.rain_ppc}} %</td>
+            <td> {{y.rain_dpc}} %</td>
+            <td> {{y.hot_ppc}} %</td>
+            <td> {{y.hot_dpc}} %</td>
+            <td> {{y.cold_ppc}} %</td>
+            <td> {{y.cold_dpc}} %</td>
+            <td> {{y.wind_ppc}} %</td>
+            <td> {{y.wind_dpc}} %</td>
             </tr>
         </table>
         </div>
