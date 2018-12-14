@@ -32,7 +32,7 @@
         <p> <b>
         <!-- <form id="form1" onclick="drawChart(); return false" > -->
         <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
-        Temperature -  
+        Temp -  
             Min: <input name="temp_min" ng-model="temp_min" value="-100">
             Max: <input name="temp_max" ng-model="temp_max" value="100"></br>
             <!-- <span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span>  -->
@@ -55,27 +55,28 @@
 
         <table id="table" border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
-            <td> <b>Total Amount</b> </td>
-            <td> <b> Fare Amount</b></td>
-            <td> <b> Tip Amount </b></td>
-            <td> <b> Tip Percent </b></td>
-            <td> <b> Distance </b></td>
-            <td> <b> Total Time </b></td>
+            <td> <b><u>Total Amount</u></b> </td>
+            <td> <b><u> Fare Amount</u></b></td>
+            <td> <b><u> Tip Amount </u></b></td>
+            <td> <b><u> Tip Percent </u></b></td>
+            <td> <b><u> Distance </u></b></td>
+            <td> <b><u> Total Time </u></b></td>
             <tr ng-repeat="x in data"> 
             <td id="total">{{x.total}} </td>
             <td id="fare"> {{x.fare}} </td>
             <td id="tip"> {{x.tip}} </td>
-            <td id="tippct"> {{x.tippct}} </td>
+            <td id="tippct"> {{x.tippct}}% </td>
             <td id="distnace"> {{x.distance}} </td>
             <td id="time"> {{x.time}} </td>
             </tr>
         </table>
 
         </div>
-<div id="spendingchart" align="center"></div>
-<div id="distancechart" align="center"></div>
-<div id="durationchart" align="center"></div>
-
+<div width="500">
+<div float="left" width="100" id="spendingchart" align="center"></div><br>
+<div float="left" width="100" id="distancechart" align="center"></div><br>
+<div float="left" width="100" id="durationchart" align="center"></div><br>
+</div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
@@ -113,17 +114,18 @@ var dataDist = google.visualization.arrayToDataTable([
   ['Duration', 'Minutes'],
   ['Duration', min]
 ]);
-    var options1 = {'title':'Consumer Taxi Spending in Borough', 'width':550, 'height':400};
+    var options1 = {'title':'City-Wide Average Taxi Spending', 'width':550, 'height':400, 'vAxis': {format: 'currency', title: "Dollars"},
+    'hAxis': {title: "Payment Type"}};
     var chart1 = new google.visualization.ColumnChart(document.getElementById('spendingchart'));
     chart1.draw(dataSpending, options1);
 
-    var options2 = {'title':'Consumer Taxi Distance in Borough', 'width':550, 'height':400};
+    var options2 = {'title':'City-Wide Average Taxi Distance', 'width':550, 'height':400, 'vAxis': {title: "Miles"}};
     var chart2 = new google.visualization.ColumnChart(document.getElementById('distancechart'));
     chart2.draw(dataDist, options2);
 
-    var options3 = {'title':'Consumer Taxi Duration in Borough', 'width':550, 'height':400};
+    var options3 = {'title':'City-Wide Average Taxi Duration', 'width':550, 'height':400, 'vAxis': {title: "Minutes"}};
     var chart3 = new google.visualization.ColumnChart(document.getElementById('durationchart'));
-    chart3.draw(dataDuration, options3);    
+    chart3.draw(dataDuration, options3);      
 }
 </script></br>
 </body>

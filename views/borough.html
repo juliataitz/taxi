@@ -34,19 +34,19 @@
 
         <button type="button" ng-click="Submit()" class="button">Show Borough Stats</button>
         
-        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
+        <table border="0" cellpadding="5" cellspacing="1" width="900" align="center"></br>
         <h4>Rides Per Day</h4>
             <tr> 
-            <td> Snow Pickup </td>
-            <td> Snow Dropoff </td>
-            <td> Rain Pickup </td>
-            <td> Rain Dropoff </td>
-            <td> Hot Pickup </td>
-            <td> Hot Dropoff </td>
-            <td> Cold Pickup </td>
-            <td> Cold Dropoff </td>
-            <td> Windy Pickup </td>
-            <td> Windy Dropoff </td>
+            <td> <b><u> Snow Pickup </u></b></td>
+            <td> <b><u>Snow Dropoff </u></b></td>
+            <td> <b><u>Rain Pickup </u></b></td>
+            <td> <b><u>Rain Dropoff </u></b></td>
+            <td> <b><u>Hot Pickup </u></b></td>
+            <td> <b><u>Hot Dropoff </u></b></td>
+            <td> <b><u>Cold Pickup </u></b></td>
+            <td> <b><u>Cold Dropoff </u></b></td>
+            <td> <b><u>Windy Pickup </u></b></td>
+            <td> <b><u>Windy Dropoff </u></b></td>
             <tr ng-repeat="y in data2"> 
             <td> {{y.snow_p}} </td>
             <td> {{y.snow_d}} </td>
@@ -60,19 +60,19 @@
             <td> {{y.wind_d}} </td>
             </tr>
         </table>
-        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"></br>
-        <h4>Percent of People Who Take a Taxi Per Day</h4>
+        <table border="0" cellpadding="5" cellspacing="1" width="900" align="center"></br>
+        <h4>Percent of Population Riders Per Day</h4>
             <tr> 
-            <td> Snow Pickup </td>
-            <td> Snow Dropoff </td>
-            <td> Rain Pickup </td>
-            <td> Rain Dropoff </td>
-            <td> Hot Pickup </td>
-            <td> Hot Dropoff </td>
-            <td> Cold Pickup </td>
-            <td> Cold Dropoff </td>
-            <td> Windy Pickup </td>
-            <td> Windy Dropoff </td>
+            <td> <b><u>Snow Pickup </u></b></td>
+            <td> <b><u>Snow Dropoff </u></b></td>
+            <td> <b><u>Rain Pickup </u></b></td>
+            <td> <b><u>Rain Dropoff </u></b></td>
+            <td> <b><u>Hot Pickup </u></b></td>
+            <td> <b><u>Hot Dropoff </u></b></td>
+            <td> <b><u>Cold Pickup </u></b></td>
+            <td> <b><u>Cold Dropoff</u> </b></td>
+            <td> <b><u>Windy Pickup </u></b></td>
+            <td> <b><u>Windy Dropoff</u></b></td>
             <tr ng-repeat="y in data2"> 
             <td> {{y.snow_ppc}} %</td>
             <td> {{y.snow_dpc}} %</td>
