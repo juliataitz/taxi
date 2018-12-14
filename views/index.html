@@ -48,19 +48,19 @@
             Min: <input name="wind_min" ng-model="wind_min" value="0">
             Max: <input name="wind_max" ng-model="wind_max" value="100"></br>
             </b>
-            <button type="button" onclick="setTimeout(drawChart, 8000);" ng-click="Submit()" class="button">Show City Stats</button>
+            <button type="button" onclick="setTimeout(drawChart, 7000);" ng-click="Submit()" class="button">Show City Stats</button>
             <!-- </form> -->
         </b>
         </p>
 
-        <table id="table" border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+        <table id="table" border="0" cellpadding="10" cellspacing="1" width="600" align="center"> 
             <tr> 
-            <td> <b><u>Total Amount</u></b> </td>
-            <td> <b><u> Fare Amount</u></b></td>
-            <td> <b><u> Tip Amount </u></b></td>
-            <td> <b><u> Tip Percent </u></b></td>
-            <td> <b><u> Distance </u></b></td>
-            <td> <b><u> Total Time </u></b></td>
+            <td> <b><u>Average Total</u></b> </td>
+            <td> <b><u>Average Fare</u></b></td>
+            <td> <b><u>Average Tip </u></b></td>
+            <td> <b><u> Average Tip Pct </u></b></td>
+            <td> <b><u> Average Distance </u></b></td>
+            <td> <b><u> Average Time </u></b></td>
             <tr ng-repeat="x in data"> 
             <td id="total">{{x.total}} </td>
             <td id="fare"> {{x.fare}} </td>
